@@ -3,7 +3,8 @@ Rubyandme::Application.configure do
 
   # Code is not reloaded between requests.
   config.cache_classes = true
-
+  config.assets.compress = true
+  
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both thread web servers
   # and those relying on copy on write to perform better.
@@ -20,14 +21,14 @@ Rubyandme::Application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_assets = false
+  config.serve_static_assets = true
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs.
   config.assets.digest = true
@@ -81,4 +82,16 @@ Rubyandme::Application.configure do
   # Devise default url option
   config.action_mailer.default_url_options = { :host => ENV["HOST"] }
   config.assets.initialize_on_precompile = false
+
+  # Mailer Settings and Configurations
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",   
+    :port                 => '587',
+    :domain               => 'gmail.com',
+    :user_name            => 'rajasreem1990@gmail.com',
+    :password             => 'ranjusree',
+    :authentication       => 'plain',
+    :enable_starttls_auto => true
+  }
 end
