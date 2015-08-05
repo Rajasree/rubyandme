@@ -1,0 +1,28 @@
+<% unless @news.blank? %>
+  Hi,
+	<h3>News Updates From BrunchKnock</h3>
+	<table>
+	  <tbody>
+	    <% if @news.class.name == "News" %>
+	    <% news = @news %>
+	      <tr>
+	        <td><a href=<%= news.link %>><%= news.subject %></a></td>	            
+	        <td><%= news.event_date.strftime("%a, %d %b %Y %H:%M:%S ") %></td>
+	      </tr>
+	    <% else %>
+		    <% @news.each do |news| %>
+		      <tr>
+		        <td><%= news.type_name %></td>
+		        <td><a href=<%= news.link %>><%= news.subject %></a></td>	            
+		        <td><%= news.event_date.strftime("%a, %d %b %Y %H:%M:%S ") %></td>
+		      </tr>
+		    <% end %>
+		  <% end %>
+	  </tbody>
+	</table>
+	<p>
+	  Regards
+	  <br/>
+	  BrunchKnock Team
+	</p>
+<% end %>

@@ -1,0 +1,2 @@
+module ModuleUsersHelper
+end

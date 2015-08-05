@@ -1,0 +1,73 @@
+<%= form_for @news, :html => { :class => "form-horizontal news" } do |f| %>
+
+    <% if @news.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@news.errors.count, "error") %> prohibited this news from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @news.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :type_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :type_name, :class => 'form-control' %>
+    </div>
+    <%= error_span(@news[:type_name]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :subject, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :subject, :class => 'form-control' %>
+    </div>
+    <%= error_span(@news[:subject]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :description, :class => 'form-control' %>
+    </div>
+    <%= error_span(@news[:description]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :link, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :link, :class => 'form-control' %>
+    </div>
+    <%= error_span(@news[:link]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :event_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :event_date, :class => 'form-control' %>
+    </div>
+    <%= error_span(@news[:event_date]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :priority, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :priority, :class => 'form-control' %>
+    </div>
+    <%= error_span(@news[:priority]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :modul_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :modul_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@news[:modul_id]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            news_index_path, :class => 'btn btn-default' %>
+
+<% end %>

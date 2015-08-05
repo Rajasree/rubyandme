@@ -1,0 +1,5 @@
+<% if @error.blank? %>
+  alert('<%= @message %>')
+<% else %>  
+  alert('<%= @error.first %>');
+<% end %>

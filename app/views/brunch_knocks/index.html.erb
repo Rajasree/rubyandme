@@ -1,0 +1,3 @@
+<%= link_to t('.join', default: t("helpers.links.join")), '#',
+            onclick: current_user.present? ? "join_modul('#{controller_name}', '#{current_user.id}');" : "alert('Please Login to Join Here..!');",
+            class: 'btn btn-primary' %>
