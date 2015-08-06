@@ -7,7 +7,7 @@
   */
 
  #side-box{
-  display: none;!important;
+  display: none!important;
   float: right;
 }
 
