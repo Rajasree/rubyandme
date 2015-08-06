@@ -1,5 +1,5 @@
 function show_sign_up(){
-  $('.col-lg-3').show();
+  $('#side-box').show();
 }
 
 function join_modul(controller_name, user_id){
